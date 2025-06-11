@@ -11,6 +11,7 @@ public interface I_Constantes {
 	
 	//constantes de los JSP
 	String JSP_INDEX = "index.jsp";
+	String JSP_ADMIN = "admin.jsp";
 	String JSP_GESTION = "gestion.jsp";
 	String JSP_CANCIONES = "canciones.jsp";
 	String JSP_PELICULAS = "peliculas.jsp";

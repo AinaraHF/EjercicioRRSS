@@ -205,12 +205,14 @@ input{
 
 .insertar_serie { grid-area: insertar_serie; }
 
-.frm_insertar{
+/*.frm_insertar{
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-content: center;
 	background-color: var(--colorContrasteClaro);
-}
+	border: 2px solid var(--colorContrasteOscuro);
+}*/
 
 table{
 	color: var(--colorPrincipalClaro);

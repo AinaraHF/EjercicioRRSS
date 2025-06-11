@@ -103,6 +103,7 @@ public class DB_Helper implements I_Constantes{
 
 	public List<V_Pelicula> obtenerTodasPeliculas(Connection con) {
 
+		
 		try {
 			
 			List<V_Pelicula> lista = new ArrayList<V_Pelicula>();

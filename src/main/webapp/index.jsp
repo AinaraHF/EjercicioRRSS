@@ -8,6 +8,7 @@
     <title>Sharing is caring</title>
     <link rel="stylesheet" href="styles/style_productos.css" >
     <link rel="stylesheet" href="styles/style.css" >
+    <script type="text/javascript" src="js/sha256login.js"></script>
 </head>
 <body>
     
@@ -21,7 +22,10 @@
        		<input type=text name="p_usuario" id="p_usuario"><br>
        		
        		<label for="p_pass">Contraseña</label>
-       		<input type=text name="p_pass" id="p_pass"><br>
+       		<input type=text  id="p_pass" onchange="calcularSha256()"><br>
+       		
+       		<label for="p_pass_enc">Contraseña real</label>
+       		<input type=text name="p_pass" id="p_pass_enc" ><br>
        		
        		<input type=submit value="ENTRAR" class="boton">
        		

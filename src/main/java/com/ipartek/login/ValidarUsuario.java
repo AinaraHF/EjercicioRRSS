@@ -157,7 +157,7 @@ public class ValidarUsuario extends HttpServlet implements I_Constantes{
 		if(UsuarioReal.getIdUsuario()>0) {
 			switch (UsuarioReal.getFK_rol()) {
 			case 1: 
-				ruta = JSP_GESTION;	
+				ruta = JSP_ADMIN;	
 				session.setAttribute(S_ATR_USUARIO, UsuarioReal); //guardar en sesión
 				session.removeAttribute("s_lista_posibles_bloqueos");
 				break;

@@ -50,53 +50,53 @@ if(request.getAttribute(I_Constantes.ATR_LISTA_SERIES) != null){
    	<%@include file="includes/menu.jsp" %>
 
     <main class="container">
-       <form action="InsertarCancion" class="insertar_cancion">
+       <form action="InsertarCancion" class="insertar_cancion frm_insertar">
        		<h2>Añadir canción</h2><br>
        		
        		<label for="p_titulo">Título</label>
-       		<input type=text name="p_titulo" id="p_titulo"><br>
+       		<input type=text name="p_titulo" id="p_titulo" required><br>
        		
        		<label for="p_enlace">Enlace</label>
-       		<input type=text name="p_enlace" id="p_enlace"><br>
+       		<input type=text name="p_enlace" id="p_enlace" required><br>
        		
        		<label for="p_estilo_cancion">Estilo</label>
-       		<input type=text name="p_estilo_cancion" id="p_estilo_cancion"><br>
+       		<input type=text name="p_estilo_cancion" id="p_estilo_cancion" required><br>
        		
        		<label for="p_descripcion_cancion">Descripción</label>
-       		<textarea name="p_descripcion_cancion" id="p_descripcion_cancion"></textarea><br>
+       		<textarea name="p_descripcion_cancion" id="p_descripcion_cancion" required></textarea><br>
        		       		
        		<input type=submit value="AÑADIR" class="boton">
        </form>
        
-       <form action="InsertarPelicula" class="insertar_pelicula">
+       <form action="InsertarPelicula" class="insertar_pelicula frm_insertar">
        		<h2>Añadir película</h2><br>
        		       		
        		<label for="p_pelicula">Película</label>
-       		<input type=text name="p_pelicula" id="p_pelicula"><br>
+       		<input type=text name="p_pelicula" id="p_pelicula" required><br>
        		
        		<label for="p_duracion">Duración</label>
-       		<input type=text name="p_duracion" id="p_duracion"><br>       		    		
+       		<input type=text name="p_duracion" id="p_duracion" required><br>       		    		
        		
        		<label for="p_estilo_peli">Estilo</label>
-       		<input type=text name="p_estilo_peli" id="p_estilo_peli"><br>
+       		<input type=text name="p_estilo_peli" id="p_estilo_peli" required><br>
        		
        		<label for="p_descripcion_peli">Descripción</label>
-       		<textarea name="p_descripcion_peli" id="p_descripcion_peli"></textarea><br>      		   		       		    		
+       		<textarea name="p_descripcion_peli" id="p_descripcion_peli" required></textarea><br>      		   		       		    		
        		
        		<input type=submit value="AÑADIR" class="boton">
        </form>
        
-       <form action="InsertarSerie" class="insertar_serie">
+       <form action="InsertarSerie" class="insertar_serie frm_insertar">
        		<h2>Añadir series</h2><br>
        		       		
        		<label for="p_serie">Serie</label>
-       		<input type=text name="p_serie" id="p_serie"><br>
+       		<input type=text name="p_serie" id="p_serie" required><br>
        		
        		<label for="p_num_temporadas">Nº Temporadas</label>
-       		<input type=text name="p_num_temporadas" id="p_num_temporadas"><br>
+       		<input type=text name="p_num_temporadas" id="p_num_temporadas" required><br>
        		
        		<label for="p_descripcion_serie">Descripción</label>
-       		<textarea name="p_descripcion_serie" id="p_descripcion_serie"></textarea><br>
+       		<textarea name="p_descripcion_serie" id="p_descripcion_serie" required></textarea><br>
        		       		       		
        		<input type=submit value="AÑADIR" class="boton">
        </form>

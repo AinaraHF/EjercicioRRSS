@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
 
+import com.ipartek.Auxiliar;
 import com.ipartek.modelo.DB_Helper;
 import com.ipartek.modelo.I_Constantes;
 import com.ipartek.modelo.dto.Pelicula;
@@ -36,27 +37,40 @@ public class BorrarPelicula extends HttpServlet implements I_Constantes{
 			usuarioLogueado = (Usuario)session.getAttribute(S_ATR_USUARIO);
 		}
 		
-		int idPelicula = 0;
-		if(request.getParameter("p_idPelicula") != null) {
-			idPelicula = Integer.parseInt(request.getParameter("p_idPelicula"));		
+		if ((Usuario)session.getAttribute(S_ATR_USUARIO)!= null) {
+			
+			if (Auxiliar.validarAdminYUsuario(session)) {
+				
+				int idPelicula = 0;
+				if(request.getParameter("p_idPelicula") != null) {
+					idPelicula = Integer.parseInt(request.getParameter("p_idPelicula"));		
+				}
+			
+				DB_Helper  db = new DB_Helper();
+				Connection con = db.conectar();
+				
+				db.borrarPelicula(idPelicula, con);
+				List<V_Cancion> listaCanciones = db.obtenerCancionesPorIdUsuario(usuarioLogueado.getIdUsuario(), con);
+				List<V_Pelicula> listaPeliculas = db.obtenerPeliculasPorIdUsuario(usuarioLogueado.getIdUsuario(), con);
+				List<V_Serie> listaSeries = db.obtenerSeriesPorIdUsuario(usuarioLogueado.getIdUsuario(), con);
+				
+				db.desconectar(con);
+				
+				request.setAttribute(ATR_LISTA_CANCIONES, listaCanciones);
+				request.setAttribute(ATR_LISTA_PELICULAS, listaPeliculas);
+				request.setAttribute(ATR_LISTA_SERIES, listaSeries);
+				
+				request.getRequestDispatcher(JSP_GESTION).forward(request, response);
+			}else {
+				
+				response.sendRedirect("http://www.marca.com");
+				
+			}
+			}else {
+				
+				response.sendRedirect("http://www.marca.com");
+			}
 		}
-	
-		DB_Helper  db = new DB_Helper();
-		Connection con = db.conectar();
-		
-		db.borrarPelicula(idPelicula, con);
-		List<V_Cancion> listaCanciones = db.obtenerCancionesPorIdUsuario(usuarioLogueado.getIdUsuario(), con);
-		List<V_Pelicula> listaPeliculas = db.obtenerPeliculasPorIdUsuario(usuarioLogueado.getIdUsuario(), con);
-		List<V_Serie> listaSeries = db.obtenerSeriesPorIdUsuario(usuarioLogueado.getIdUsuario(), con);
-		
-		db.desconectar(con);
-		
-		request.setAttribute(ATR_LISTA_CANCIONES, listaCanciones);
-		request.setAttribute(ATR_LISTA_PELICULAS, listaPeliculas);
-		request.setAttribute(ATR_LISTA_SERIES, listaSeries);
-		
-		request.getRequestDispatcher(JSP_GESTION).forward(request, response);
-	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
